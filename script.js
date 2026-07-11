@@ -41,14 +41,17 @@ async function correctGrammar() {
   correctBtn.disabled = true;
   correctBtn.textContent = 'Correcting...';
 
-  try {
-    const formData = new FormData();
-    formData.append('text', text);
+  const isLocalXampp = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const backendUrl = isLocalXampp ? 'correct.php' : 'api/correct';
 
-    // Call correct.php backend
-    const response = await fetch('correct.php', {
+  try {
+    // Send post data as application/x-www-form-urlencoded
+    const response = await fetch(backendUrl, {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({ text: text })
     });
 
     if (!response.ok) {
@@ -69,7 +72,8 @@ async function correctGrammar() {
 
   } catch (err) {
     hideElement(loadingState);
-    showError('Something went wrong: ' + err.message + '. Make sure XAMPP is running.');
+    const extraHelp = isLocalXampp ? '. Make sure XAMPP is running.' : '';
+    showError('Something went wrong: ' + err.message + extraHelp);
   } finally {
     correctBtn.disabled = false;
     correctBtn.textContent = 'Correct Grammar';
