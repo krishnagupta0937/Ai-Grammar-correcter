@@ -1,0 +1,10 @@
+# Ignore local configuration files containing API keys or private secrets
+config.local.php
+
+# Editor / IDE configuration directories
+.vscode/
+.idea/
+
+# OS generated files
+Thumbs.db
+Desktop.ini

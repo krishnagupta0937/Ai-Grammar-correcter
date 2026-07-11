@@ -1,0 +1,214 @@
+/* ============================================================
+   AI Grammar Corrector — Minimalist Styles (style.css)
+   ============================================================ */
+
+/* ---- Reset & Core Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #111827; /* Near black */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 1.5rem;
+}
+
+/* ---- Layout Container ---- */
+.container {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---- Header ---- */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.5px;
+}
+
+/* ---- Content Wrapper ---- */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ---- Form Fields ---- */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563; /* Medium gray */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #111827;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* Soft border */
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #000000; /* Minimal black border on focus */
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+textarea[readonly] {
+  background-color: #f9fafb; /* Slightly muted background for result box */
+  cursor: default;
+}
+
+/* ---- Action Rows & Button ---- */
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #1f2937; /* Dark charcoal hover */
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Loading Wheel (Spinner) ---- */
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #f3f4f6;
+  border-top-color: #000000; /* Minimal black top segment */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Error Alert ---- */
+.error-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+/* ---- Footer ---- */
+.footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  width: 100%;
+  max-width: 640px;
+  border-top: 1px solid #f3f4f6;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+/* ---- Helper classes ---- */
+.d-none {
+  display: none !important;
+}
+
+/* ---- Responsive Adaptations ---- */
+@media (max-width: 600px) {
+  body {
+    padding: 2rem 1rem;
+  }
+  
+  .container {
+    gap: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  textarea {
+    min-height: 130px;
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .action-row {
+    justify-content: center;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .footer {
+    padding-top: 1.5rem;
+  }
+}

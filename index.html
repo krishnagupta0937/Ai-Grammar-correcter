@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Grammar Corrector</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>AI Grammar Corrector</h1>
+    </header>
+
+    <div class="content-wrapper">
+      <!-- Input Dialog Box -->
+      <div class="field-group">
+        <label for="inputText">Input Text</label>
+        <textarea
+          id="inputText"
+          placeholder="Paste or type your text here..."
+          maxlength="5000"
+        ></textarea>
+      </div>
+
+      <!-- Action Button -->
+      <div class="action-row">
+        <button id="correctBtn">Correct Grammar</button>
+      </div>
+
+      <!-- Loading Wheel State -->
+      <div id="loadingState" class="loading-state d-none">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Error Alert -->
+      <div id="errorAlert" class="error-alert d-none">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <span id="errorMsg"></span>
+      </div>
+
+      <!-- Result Dialog Box -->
+      <div id="resultSection" class="field-group d-none">
+        <label for="correctedText">Corrected Text</label>
+        <textarea id="correctedText" readonly placeholder="Result will appear here..."></textarea>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Made by Krishna Gupta</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
